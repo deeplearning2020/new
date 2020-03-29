@@ -66,7 +66,7 @@ class Darknet19Encoder(Architecture):
         logvar = Conv2D(filters=self.latentSize, kernel_size=(1, 1),
                         padding='same')(net)
         logvar = GlobalAveragePooling2D()(logvar)
-        sample = SampleLayer(inputShape)([mean, logvar], training=self.training)
+        sample = SampleLayer(self.inputShape)([mean, logvar], training=self.training)
         return Model(inputs=inLayer, outputs=sample)
 
 class Darknet19Decoder(Architecture):
