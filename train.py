@@ -18,7 +18,7 @@ def test():
     inputShape = (256, 256, 3)
     batchSize = 8
     latentSize = 100
-    img = load_img(os.path.join(os.path.dirname(__file__),'images', 'img.bmp'), target_size=inputShape[:-1])
+    img = load_img(os.path.join(os.path.dirname(__file__),'images', 'img.png'), target_size=inputShape[:-1])
     img.show()
     img = np.array(img, dtype=np.float32) * (2/255) - 1
     img = np.array([img]*batchSize) # make fake batches to improve GPU utilization
